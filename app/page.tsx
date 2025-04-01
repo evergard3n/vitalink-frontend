@@ -1,33 +1,60 @@
 import Image from "next/image";
-import { PlusCircleIcon, DocumentPlusIcon } from "@heroicons/react/24/outline";
+import {
+  PlusCircleIcon,
+  DocumentPlusIcon,
+  DocumentMagnifyingGlassIcon,
+  ChatBubbleBottomCenterIcon,
+} from "@heroicons/react/24/outline";
 import Link from "next/link";
 export default function Home() {
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="md:w-2/3 md:h-1/2 bg-white rounded-2xl drop-shadow-lg grid grid-cols-2">
-        <div className="h-full flex flex-col items-start justify-center px-10 bg-zinc-50">
+      <div className="md:w-2/3 md:h-1/2 bg-white rounded-2xl drop-shadow-lg grid grid-cols-2 overflow-hidden">
+        <div className="h-full flex flex-col items-start justify-center px-10 bg-green-400">
           <div className="flex flex-row items-center">
             <PlusCircleIcon
               width={50}
               height={50}
-              className=""
+              className="text-white"
             ></PlusCircleIcon>
-            <h1 className="text-6xl font-black">VitaLink</h1>
+            <h1 className="text-6xl font-black text-white">VitaLink</h1>
           </div>
         </div>
         <div>
-          <div className="h-full flex flex-col justify-center items-center py-4">
-          <Link href={"/create-form"} className="w-2/3 h-16  rounded-lg flex justify-center items-center gap-2">
-            <DocumentPlusIcon width={16} height={16} className="text-black"></DocumentPlusIcon>
-            <p className=" text-lg">Đặt lịch khám</p>
-          </Link>
-          <div className="w-3/4 h-0.5 bg-zinc-200"></div>
-          <Link href={"/create-form"} className="w-2/3 h-16 rounded-lg flex justify-center items-center">
-            <p className=" text-lg">Tra cứu lịch khám</p>
-          </Link>
-          <Link href={"/create-form"} className="w-2/3 h-16  rounded-lg flex justify-center items-center">
-            <p className=" text-lg">Sử dụng Trợ lý ảo</p>
-          </Link>
+          <div className="h-full grid grid-cols-2 justify-center items-center p-8 gap-4">
+            <Link
+              href={"/create"}
+              className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
+            >
+              <DocumentPlusIcon
+                width={48}
+                height={48}
+                className="text-black"
+              ></DocumentPlusIcon>
+              <p className=" text-lg pt-4 font-semibold">Đặt lịch khám</p>
+            </Link>
+            <Link
+              href={"/create-form"}
+              className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
+            >
+              <DocumentMagnifyingGlassIcon
+                width={48}
+                height={48}
+                className="text-black"
+              ></DocumentMagnifyingGlassIcon>
+              <p className=" text-lg pt-4 font-semibold">Tra cứu hồ sơ</p>
+            </Link>
+            <Link
+              href={"/create-form"}
+              className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
+            >
+              <ChatBubbleBottomCenterIcon
+                width={48}
+                height={48}
+                className="text-black"
+              ></ChatBubbleBottomCenterIcon>
+              <p className=" text-lg pt-4 font-semibold">Chatbot</p>
+            </Link>
           </div>
         </div>
       </div>
