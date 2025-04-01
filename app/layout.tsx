@@ -13,18 +13,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const inter = Inter({
+export const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 })
 
-const poppins = Poppins({
+export const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 })
 
-const roboto = Roboto({
+export const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
 })

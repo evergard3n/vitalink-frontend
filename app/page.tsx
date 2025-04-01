@@ -8,8 +8,8 @@ import {
 import Link from "next/link";
 export default function Home() {
   return (
-    <div className="w-full h-full flex justify-center items-center">
-      <div className="md:w-2/3 md:h-1/2 bg-white rounded-2xl drop-shadow-lg grid grid-cols-2 overflow-hidden">
+    <div className="w-full h-screen flex justify-center items-center">
+      <div className="md:w-1/2 md:h-1/2 bg-white rounded-2xl drop-shadow-lg grid grid-cols-2 overflow-hidden">
         <div className="h-full flex flex-col items-start justify-center px-10 bg-green-400">
           <div className="flex flex-row items-center">
             <PlusCircleIcon
