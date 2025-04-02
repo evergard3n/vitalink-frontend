@@ -23,7 +23,7 @@ export default function Home() {
         <div>
           <div className="h-full grid grid-cols-2 justify-center items-center p-8 gap-4">
             <Link
-              href={"/create"}
+              href={"/patients/create"}
               className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
             >
               <DocumentPlusIcon
@@ -34,7 +34,7 @@ export default function Home() {
               <p className=" text-lg pt-4 font-semibold">Đặt lịch khám</p>
             </Link>
             <Link
-              href={"/create-form"}
+              href={"/patients/search"}
               className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
             >
               <DocumentMagnifyingGlassIcon
@@ -45,7 +45,7 @@ export default function Home() {
               <p className=" text-lg pt-4 font-semibold">Tra cứu hồ sơ</p>
             </Link>
             <Link
-              href={"/create-form"}
+              href={"/patients/chatbot"}
               className="w-full h-full bg-zinc-100  rounded-lg flex flex-col justify-center items-center"
             >
               <ChatBubbleBottomCenterIcon

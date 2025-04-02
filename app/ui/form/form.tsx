@@ -1,24 +1,23 @@
+'use client'
 import Chatbot from "../chatbot/chatbot";
 import NavBar from "../navbar/navbar";
 import SearchableDropdown from "./chuyenkhoa";
 import { inter, poppins } from "@/app/layout";
+import { useRouter } from "next/navigation";
 export default function Form() {
+  const router = useRouter()
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData);
+    console.log(data);
+    router.push("/patients/create/checkup")
+  }
   return (
-    <div className="p-2 rounded-lg overflow-hidden grow grid grid-cols-2 h-full">
-      <div className="flex flex-col items-start justify-between h-full px-16 gap-8 w-full">
-        <div className="w-full h-20"></div>
-        <div className="grow flex flex-col items-start gap-4 relative">
-          <h1 className={`text-6xl  leading-tight ${inter.className} font-semibold`}>
-            Đăng ký khám bệnh <br></br> dễ dàng{" "}
-          </h1>
-          <p className="text-md mb-8">
-            Sử dụng Chatbot để hỗ trợ điền đơn ngay.{" "}
-          </p>
-          <Chatbot />
-        </div>
-      </div>
+    <div className="p-2 rounded-lg overflow-hidden grow h-full">
+      
       <div className="w-full h-full bg-white drop-shadow-sm rounded-lg p-8 border-8 border-zinc-100 flex flex-col">
-        <form action="" className="flex flex-col gap-2 w-full grow">
+        <form onSubmit={handleSubmit} action="" className="flex flex-col gap-2 w-full grow">
           <h1 className="text-center font-semibold text-3xl">
             Thông tin cá nhân{" "}
           </h1>

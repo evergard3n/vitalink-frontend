@@ -1,0 +1,56 @@
+"use client";
+import { departments } from "@/app/patients/create/checkup/page";
+import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
+
+export default function EditDepartments() {
+  const [open, setOpen] = useState<Boolean>(false);
+  const [dep, setDep] = useState<string[]>(departments);
+function handleDelete(index: number) {
+  setDep(dep.filter((_, i) => i !== index));
+}
+  return (
+    <div>
+      <ol className="grid grid-cols-3 gap-4 pt-4">
+        {dep.map((department, index) => (
+          <li
+            key={index}
+            className="border border-zinc-200 rounded-lg h-fit min-h-18 flex items-center justify-center font-bold text-xl"
+          >
+            {department}
+          </li>
+        ))}
+        <li className="border border-zinc-200 rounded-lg h-fit min-h-18 flex items-center justify-center text-md gap-2">
+          <button
+            className="flex items-center gap-2"
+            onClick={() => setOpen(true)}
+          >
+            <PencilIcon width={16} height={16} className=""></PencilIcon>Thêm
+            hoặc chỉnh sửa
+          </button>
+        </li>
+      </ol>
+      {!open && (
+        <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30  backdrop-blur-2xl">
+          <div className="w-1/3 h-fit min-h-1/3 bg-white rounded-lg border-6 drop-shadow-sm border-zinc-100 p-4">
+            <h1 className="text-center text-2xl font-bold">
+              Chỉnh sửa chuyên khoa
+            </h1>
+            <ol className="grid grid-cols-2 gap-4 pt-4">
+              {dep.map((department, index) => (
+                <li
+                  key={index}
+                  className="border border-zinc-200 rounded-md h-fit overflow-hidden max-h-24 min-h-18 flex items-center justify-between font-bold text-xl"
+                >
+                  <p className="mx-auto">{department}</p>
+                  <button className="w-12 hover:w-18 transition-all duration-150 ease-in h-68 bg-red-700" onClick={() => handleDelete(index)}><TrashIcon width={32} height={24} className="text-white mx-auto"></TrashIcon></button>
+                </li>
+              ))}
+              
+            </ol>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}

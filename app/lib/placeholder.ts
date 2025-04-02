@@ -45,7 +45,9 @@ export const formContentsPlaceholder: FormContents[] = [
     address: "123 Nguyễn Văn Cừ",
     chuyenkhoa: "Khoa tim mạch",
     trieuchung: "dau bung",
-    validated: false
+    validated: false,
+    dateCreated: "1",
+    cccd:"1234567890"
   },
   {
     id: "2",
@@ -59,7 +61,9 @@ export const formContentsPlaceholder: FormContents[] = [
     address: "456 Lê Thánh Tôn",
     chuyenkhoa: "Khoa nhi",
     trieuchung: "dau bung",
-    validated: true
+    validated: true,
+    dateCreated: "2",
+    cccd:"1234567890"
   },
   {
     id: "3",
@@ -73,6 +77,8 @@ export const formContentsPlaceholder: FormContents[] = [
     address: "789 Trần Hưng Đạo",
     chuyenkhoa: "Khoa ung bướu",
     trieuchung: "dau bung",
-    validated: false
+    validated: false,
+    dateCreated: "3",
+    cccd: "3123456789"
   }
 ];

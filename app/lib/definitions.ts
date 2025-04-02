@@ -17,5 +17,7 @@ export interface FormContents {
     address: string,
     chuyenkhoa: string,
     trieuchung: string,
-    validated: boolean
+    validated: boolean,
+    dateCreated: string,
+    cccd: string,
 }
