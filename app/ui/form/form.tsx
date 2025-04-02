@@ -6,7 +6,7 @@ export default function Form() {
   return (
     <div className="p-2 rounded-lg overflow-hidden grow grid grid-cols-2 h-full">
       <div className="flex flex-col items-start justify-between h-full px-16 gap-8 w-full">
-        <NavBar />
+        <div className="w-full h-20"></div>
         <div className="grow flex flex-col items-start gap-4 relative">
           <h1 className={`text-6xl  leading-tight ${inter.className} font-semibold`}>
             Đăng ký khám bệnh <br></br> dễ dàng{" "}

@@ -1,4 +1,4 @@
-import { Chat } from "./definitions";
+import { Chat, FormContents } from "./definitions";
 export const chatSequence: Chat[] = [
   {
     id: "1",
@@ -31,4 +31,48 @@ export const chatSequence: Chat[] = [
     sender: "BOT",
     timestamp: "string",
   },
+];
+export const formContentsPlaceholder: FormContents[] = [
+  {
+    id: "1",
+    name: "Nguyễn Văn A",
+    birthday: "1990-01-01",
+    gender: "Nam",
+    phone: "0901234567",
+    province: "Hà Nội",
+    district: "Quận 1",
+    ward: "Phường 1",
+    address: "123 Nguyễn Văn Cừ",
+    chuyenkhoa: "Khoa tim mạch",
+    trieuchung: "dau bung",
+    validated: false
+  },
+  {
+    id: "2",
+    name: "Trần Thị B",
+    birthday: "1995-06-15",
+    gender: "Nữ",
+    phone: "0909876543",
+    province: "TP. Hồ Chí Minh",
+    district: "Quận 3",
+    ward: "Phường 2",
+    address: "456 Lê Thánh Tôn",
+    chuyenkhoa: "Khoa nhi",
+    trieuchung: "dau bung",
+    validated: true
+  },
+  {
+    id: "3",
+    name: "Lê Văn C",
+    birthday: "1980-03-20",
+    gender: "Nam",
+    phone: "0901112222",
+    province: "Đà Nẵng",
+    district: "Quận Hải Châu",
+    ward: "Phường 3",
+    address: "789 Trần Hưng Đạo",
+    chuyenkhoa: "Khoa ung bướu",
+    trieuchung: "dau bung",
+    validated: false
+  }
 ];

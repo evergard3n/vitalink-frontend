@@ -1,24 +1,26 @@
 import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import NavItem from "./navitem";
 import Link from "next/link";
+import { AnimatePresence, motion } from "framer-motion";
 const navItems = [
   {
-    href: "/create",
+    href: "/patients/create",
     name: "Đặt lịch khám ",
   },
   {
-    href: "/search",
+    href: "/patients/search",
     name: "Tra cứu lịch khám ",
   },
   {
-    href: "/chat",
+    href: "/patients/chat",
     name: "Trợ lý ảo ",
   },
 ];
 
 export default function NavBar() {
   return (
-    <div className="w-full  z-20 h-18 bg-linear-to-br from-white to-zinc-150 drop-shadow-xs transition-all duration-200 ease-in backdrop-blur-sm min-h-12 border border-zinc-200 rounded-lg flex flex-row items-center gap-8  px-4">
+    
+      <div className="w-[90%] absolute z-20 h-18 bg-linear-to-br from-white to-zinc-150 drop-shadow-xs transition-all duration-200 ease-in backdrop-blur-sm min-h-12 border border-zinc-200 rounded-lg flex flex-row items-center gap-8  px-4">
       <div className="flex flex-row justify-center items-center">
         <Link href={"/"} className="flex flex-row items-center justify-center">
           <PlusCircleIcon width={24} height={24} />
@@ -31,5 +33,6 @@ export default function NavBar() {
         </ol>
       </div>
     </div>
+    
   );
 }
