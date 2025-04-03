@@ -21,6 +21,7 @@ export default function SearchableDropdown() {
           
         }}
         id="chuyenkhoa"
+        name="chuyenkhoa"
         onFocus={() => setIsOpen(true)}
         className="w-full h-10 pl-2 border rounded-lg border-zinc-200"
         placeholder="Chọn chuyên khoa..."
