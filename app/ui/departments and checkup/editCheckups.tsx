@@ -3,9 +3,9 @@ import { PencilIcon, TrashIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import SearchableDropdown from "../form/chuyenkhoa";
 
-export default function EditDepartments({departments}: {departments: string[]}) {
+export default function EditCheckups({checkups}: {checkups: string[]}) {
   const [open, setOpen] = useState<Boolean>(false);
-  const [dep, setDep] = useState<string[]>(departments);
+  const [dep, setDep] = useState<string[]>(checkups);
   function handleDelete(index: number) {
     setDep(dep.filter((_, i) => i !== index));
   }
@@ -21,21 +21,21 @@ export default function EditDepartments({departments}: {departments: string[]}) 
     setOpen(false);
   }
   function handleClose() {
-    setDep(departments);
+    setDep(checkups);
     setOpen(false);
   }
   return (
     <div>
-      <ol className="grid grid-cols-3 gap-4 pt-4">
+      <ol className="grid grid-cols-2 gap-4 pt-4">
         {dep.map((department, index) => (
           <li
             key={index}
-            className="border border-zinc-200 rounded-lg h-fit min-h-18 flex items-center justify-center font-bold text-xl"
+            className="border border-zinc-200 rounded-lg h-fit min-h-12 flex items-center justify-center text-lg"
           >
             {department}
           </li>
         ))}
-        <li className="border border-zinc-200 rounded-lg h-fit min-h-18 flex items-center justify-center text-md gap-2 bg-black text-white hover:bg-linear-to-r hover:from-black hover:to-zinc-600 hover:drop-shadow-md transition-colors duration-150 ease-in">
+        <li className="border border-zinc-200 rounded-lg h-fit min-h-12 bg-black text-white flex items-center justify-center text-md gap-2 hover:bg-linear-to-r hover:from-black hover:to-zinc-600 hover:drop-shadow-md transition-colors duration-150 ease-in">
           <button
             className="flex items-center gap-2"
             onClick={() => setOpen(true)}
@@ -49,7 +49,7 @@ export default function EditDepartments({departments}: {departments: string[]}) 
         <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center z-30  backdrop-blur-2xl">
           <div className="w-1/3 h-fit min-h-1/3 bg-white rounded-lg border-6 drop-shadow-sm border-zinc-100 p-4">
             <h1 className="text-center text-2xl font-bold">
-              Chỉnh sửa chuyên khoa
+              Chỉnh sửa xét nghiệm
             </h1>
             <ol className="grid grid-cols-2 gap-4 pt-4">
               {dep.map((department, index) => (
@@ -71,7 +71,7 @@ export default function EditDepartments({departments}: {departments: string[]}) 
                 </li>
               ))}
             </ol>
-            <p className="py-4">Thêm chuyên khoa theo yêu cầu:</p>
+            <p className="py-4">Thêm xét nghiệm theo yêu cầu:</p>
             <form
               action=""
               onSubmit={handleAddNewDept}

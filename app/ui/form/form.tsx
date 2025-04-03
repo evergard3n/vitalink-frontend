@@ -113,7 +113,7 @@ export default function Form() {
           <textarea id="trieuchung" className="min-h-30 border border-zinc-200 rounded-lg px-2 pt-2 resize-none"></textarea>
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-400 transition-colors duration-150 ease-in w-fit px-4 py-2 text-white rounded-lg ml-auto"
+            className="bg-blue-500 hover:bg-blue-400 transition-colors duration-150 ease-in w-fit px-4 py-2 text-white rounded-lg ml-auto mt-auto"
           >
             Tiếp tục{" "}
           </button>

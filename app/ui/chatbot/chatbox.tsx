@@ -1,21 +1,28 @@
 "use client";
 import { useState, useRef } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { useWebSocket } from "@/app/lib/wsContext";
 
 export default function ChatBox() {
   const [text, setText] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-
+  const { sendMessage } = useWebSocket() || {};
   const adjustHeight = () => {
     if (textareaRef.current) {
       textareaRef.current.style.height = "auto"; // Reset height
       textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Adjust to content
     }
   };
-
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if(sendMessage) {
+      sendMessage(text);
+    }
+    setText("");
+  }
   return (
     <div className="bg-zinc-100 w-[95%] bottom-5 rounded-lg p-2 mb-3">
-      <form action="" className="relative w-full h-fit flex flex-col">
+      <form action="" onSubmit={handleSubmit} className="relative w-full h-fit flex flex-col">
         <textarea
           ref={textareaRef}
           value={text}
