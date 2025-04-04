@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Chat } from "./definitions";
 
@@ -6,14 +6,22 @@ interface WebSocketContextType {
   socket: WebSocket | null;
   messages: Chat[] | undefined;
   sendMessage: (message: string) => void;
+  sendFormData: (formData: any) => void;
+  formContent: any;
 }
 
-const WebSocketContext = createContext<WebSocketContextType | undefined>(undefined);
+const WebSocketContext = createContext<WebSocketContextType | undefined>(
+  undefined
+);
 
-export const WebSocketProvider = ({ children }: { children: React.ReactNode }) => {
+export const WebSocketProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   const [socket, setSocket] = useState<WebSocket | null>(null);
   const [messages, setMessages] = useState<Chat[]>([]);
-
+  const [formContent, setFormContent] = useState();
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:5001/api/chat");
 
@@ -23,13 +31,21 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
 
     ws.onmessage = (event) => {
       const response = JSON.parse(event.data);
-      const newMessage:Chat = {
-        id: Date.now().toString(),
-        message: response.reply,
-        sender: "BOT",
-        timestamp: new Date().toISOString(),
+      if(response.reply && response.reply !== "Cập nhật form thành công.") {
+        const newMessage: Chat = {
+          id: Date.now().toString(),
+          message: response.reply,
+          sender: "BOT",
+          timestamp: new Date().toISOString(),
+        };
+        setMessages((prev) => [...prev, newMessage]);
+        setFormContent(response.form);
+      } else {
+        
+        console.log('form received')
       }
-      setMessages((prev) => [...prev, newMessage]); // Lưu tin nhắn mới
+      
+       // Lưu tin nhắn mới
     };
 
     setSocket(ws);
@@ -47,15 +63,23 @@ export const WebSocketProvider = ({ children }: { children: React.ReactNode }) =
         timestamp: new Date().toISOString(),
       };
 
-      socket.send(JSON.stringify(chatMessage));
+      socket.send(JSON.stringify({ type: "chat", message: message }));
       setMessages((prev) => [...prev, chatMessage]);
     } else {
       console.warn("⚠️ WebSocket chưa sẵn sàng!");
     }
   }
+  function sendFormData(formData: any) {
+    
 
+    if (socket && socket.readyState === WebSocket.OPEN) {
+      socket.send(JSON.stringify({type: "formUpdate", data: formData}))
+    }
+  }
   return (
-    <WebSocketContext.Provider value={{ socket, messages, sendMessage }}>
+    <WebSocketContext.Provider
+      value={{ socket, messages, sendMessage, sendFormData, formContent }}
+    >
       {children}
     </WebSocketContext.Provider>
   );
