@@ -82,39 +82,42 @@ export default function Form() {
           action=""
           className="flex flex-col gap-2 w-full grow"
         >
-          <h1 className="text-left font-semibold text-4xl pb-4">
-            Thông tin cá nhân
+          <h1 className="text-left font-semibold text-4xl">
+            Thông tin cá nhân 
           </h1>
-          <label htmlFor="name">Họ và tên </label>
+          <div className="h-0.5 w-1/4 bg-green-400 mb-4"></div>
+          <label htmlFor="name">Họ và tên <span className="text-red-700">*</span> </label>
           <input
             required
             type="text"
             id="name"
             value={formFields?.name ?? ""}
+            placeholder="Nhập họ và tên"
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               setTouching(true);
               setFormFields({ ...formFields, name: event.target.value });
             }}
-            className="w-full h-10 border border-zinc-200 rounded-lg pl-2"
+            className="w-full h-10 bg-zinc-100 rounded-sm pl-2"
           />
 
-          <div className="grid grid-cols-3 w-full gap-4">
+          <div className="grid md:grid-cols-3 w-full gap-4">
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="birth">Ngày sinh </label>
+              <label htmlFor="birth">Ngày sinh <span className="text-red-700">*</span> </label>
               <input
                 type="text"
                 id="birth"
                 required
+                placeholder ="Nhập ngày sinh"
                 value={formFields?.dob ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
                   setFormFields({ ...formFields, dob: event.target.value });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="myDropdown">Giới tính </label>
+              <label htmlFor="myDropdown">Giới tính <span className="text-red-700">*</span></label>
               <select
                 required
                 id="myDropdown"
@@ -123,7 +126,7 @@ export default function Form() {
                   setTouching(true);
                   setFormFields({ ...formFields, name: event.target.value });
                 }}
-                className="h-10 pl-2 border rounded-lg border-zinc-200"
+                className="w-full h-10 bg-zinc-100 rounded-sm pl-2"
               >
                 <option value="" disabled hidden className="text-zinc-800">
                   Chọn giới tính
@@ -134,27 +137,29 @@ export default function Form() {
               </select>
             </div>
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="phone">Số điện thoại </label>
+              <label htmlFor="phone">Số điện thoại <span className="text-red-700">*</span></label>
               <input
                 id="phone"
                 required
+                placeholder="Nhập số điện thoại"
                 type="text"
                 value={formFields?.phone ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
                   setFormFields({ ...formFields, phone: event.target.value });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className="w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
           </div>
-          <div className="grid grid-cols-3 w-full gap-4">
+          <div className="grid md:grid-cols-3 w-full gap-4">
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="province">Tỉnh/Thành </label>
+              <label htmlFor="province">Tỉnh/Thành <span className="text-red-700">*</span></label>
               <input
                 type="text"
                 id="province"
                 required
+                placeholder="Nhập tình/thành"
                 value={formFields?.province ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
@@ -163,15 +168,16 @@ export default function Form() {
                     province: event.target.value,
                   });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="district">Quận/Huyện </label>
+              <label htmlFor="district">Quận/Huyện <span className="text-red-700">*</span></label>
               <input
                 type="text"
                 id="district"
                 required
+                placeholder="Nhập quán/huyện"
                 value={formFields?.district ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
@@ -180,62 +186,67 @@ export default function Form() {
                     district: event.target.value,
                   });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
             <div className="flex flex-col gap-2 ">
-              <label htmlFor="ward">Xã/Phường </label>
+              <label htmlFor="ward">Xã/Phường <span className="text-red-700">*</span></label>
               <input
                 type="text"
                 id="ward"
                 required
+                placeholder="Nhập phường/xã"
                 value={formFields?.ward ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
                   setFormFields({ ...formFields, ward: event.target.value });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="grid md:grid-cols-2 gap-4 w-full">
             <div className="flex flex-col gap-2">
-              <label htmlFor="address">Địa chỉ </label>
+              <label htmlFor="address">Địa chỉ <span className="text-red-700">*</span></label>
               <input
                 id="address"
                 required
                 type="text"
+                placeholder="Nhập địa chỉ"
                 value={formFields?.address ?? ""}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setTouching(true);
                   setFormFields({ ...formFields, address: event.target.value });
                 }}
-                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+                className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
               />
             </div>
             <div className="flex flex-col gap-2">
-            <label htmlFor="address">Số CMTND/CCCD </label>
+            <label htmlFor="address">Số CMTND/CCCD <span className="text-red-700">*</span></label>
             <input
               id="cccd"
               required
+              placeholder="Nhập số CMTND/CCCD"
               type="text"
               value={formFields?.cccd ?? ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setTouching(true);
                 setFormFields({ ...formFields, cccd: event.target.value });
               }}
-              className=" h-10 border border-zinc-200 rounded-lg pl-2"
+              className=" w-full h-10 bg-zinc-100 rounded-sm pl-2"
             />
             </div>
           </div>
-          <h1 className="text-left font-semibold text-4xl pt-8 pb-4">
+          <h1 className="text-left font-semibold text-4xl pt-8 pb-2">
             Triệu chứng
           </h1>
+          <div className="h-0.5 w-1/6 bg-green-400 mb-4"></div>
           <label>Chuyên khoa</label>
           <SearchableDropdown />
-          <label htmlFor="trieuchung">Mô tả triệu chứng </label>
+          <label htmlFor="trieuchung">Mô tả triệu chứng <span className="text-red-700">*</span></label>
           <textarea
             id="trieuchung"
+            required
             className="min-h-30 border border-zinc-200 rounded-lg px-2 pt-2 resize-none"
           ></textarea>
           <button

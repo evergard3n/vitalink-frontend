@@ -12,7 +12,7 @@ export default function Chatbot() {
   const [open, setOpen] = useState<Boolean>(false);
   if (open) {
     return (
-      <div className="bg-white rounded-lg w-96 flex flex-col items-center overflow-hidden absolute bottom-0 left-0 drop-shadow-sm">
+      <div className="bg-white rounded-lg w-96 flex flex-col items-center overflow-hidden absolute md:bottom-0 md:left-0 z-50 -right-3 bottom-0 drop-shadow-sm">
         <div className="h-12 bg-white border-b border-zinc-100 flex flex-row justify-between px-4 items-center text-black text-md w-full font-semibold">
           <p>VitaLink Chatbot</p>
           <button onClick={() => setOpen(false)}>
