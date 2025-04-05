@@ -35,7 +35,7 @@ export default function EditCheckups({checkups}: {checkups: string[]}) {
             {department}
           </li>
         ))}
-        <li className="border border-zinc-200 rounded-lg h-fit min-h-12 bg-black text-white flex items-center justify-center text-md gap-2 hover:bg-linear-to-r hover:from-black hover:to-zinc-600 hover:drop-shadow-md transition-colors duration-150 ease-in">
+        <li className="border border-zinc-200 rounded-lg h-fit min-h-12 bg-black text-white flex items-center justify-center text-md gap-2 hover:bg-linear-to-r hover:from-black hover:to-zinc-600 hover:drop-shadow-md transition-colors duration-300 ease-in">
           <button
             className="flex items-center gap-2"
             onClick={() => setOpen(true)}

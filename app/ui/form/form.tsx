@@ -82,7 +82,7 @@ export default function Form() {
           action=""
           className="flex flex-col gap-2 w-full grow"
         >
-          <h1 className="text-center font-semibold text-3xl">
+          <h1 className="text-left font-semibold text-4xl pb-4">
             Thông tin cá nhân
           </h1>
           <label htmlFor="name">Họ và tên </label>
@@ -198,21 +198,37 @@ export default function Form() {
               />
             </div>
           </div>
-          <div className="flex flex-col gap-2 ">
-            <label htmlFor="address">Địa chỉ </label>
+          <div className="grid grid-cols-2 gap-4 w-full">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="address">Địa chỉ </label>
+              <input
+                id="address"
+                required
+                type="text"
+                value={formFields?.address ?? ""}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                  setTouching(true);
+                  setFormFields({ ...formFields, address: event.target.value });
+                }}
+                className=" h-10 border border-zinc-200 rounded-lg pl-2"
+              />
+            </div>
+            <div className="flex flex-col gap-2">
+            <label htmlFor="address">Số CMTND/CCCD </label>
             <input
-              id="address"
+              id="cccd"
               required
               type="text"
-              value={formFields?.address ?? ""}
+              value={formFields?.cccd ?? ""}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 setTouching(true);
-                setFormFields({ ...formFields, address: event.target.value });
+                setFormFields({ ...formFields, cccd: event.target.value });
               }}
               className=" h-10 border border-zinc-200 rounded-lg pl-2"
             />
+            </div>
           </div>
-          <h1 className="text-center font-semibold text-3xl pt-8">
+          <h1 className="text-left font-semibold text-4xl pt-8 pb-4">
             Triệu chứng
           </h1>
           <label>Chuyên khoa</label>

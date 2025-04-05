@@ -1,5 +1,6 @@
 import { inter } from "@/app/layout";
 import Chatbot from "@/app/ui/chatbot/chatbot";
+import Progress from "@/app/ui/progress";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,7 +13,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             Đăng ký khám bệnh <br></br> dễ dàng{" "}
           </h1>
-          <p className="text-md mb-8">
+          <Progress/>
+          <p className="text-md mt-8">
             Sử dụng Chatbot để hỗ trợ điền đơn ngay.{" "}
           </p>
           <Chatbot />
